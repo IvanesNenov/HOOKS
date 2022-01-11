@@ -1,15 +1,16 @@
 import React, {useContext, useState} from 'react'
 import AlertContext from "../context/alert/alertContext";
+import {githubContext} from "../context/github/githubContext";
 
 const Search = () => {
     const [value,setValue] = useState(null)
     const {show} = useContext(AlertContext)
-
+const github = useContext(githubContext)
     const onSubmit = (event) =>{
         if (event.key !=='Enter') { return }
 
         if (value.trim()) {
-            console.log('make request with '+ value)
+            github.search(value.trim())
         } else {
             return show('Воу Воу друг, надо что-то ввести!')
         }
