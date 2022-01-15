@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from 'react'
 import {githubContext} from "../context/github/githubContext";
 import Link from "react-router-dom/Link";
 import Repos from "../components/Repos";
+import Loading from "../components/Loading";
 
 export const Profile = ({match}) => {
     // console.log('match', match)
@@ -16,7 +17,8 @@ export const Profile = ({match}) => {
     }, [])
 
     if (loading) {
-        return <p className="text-center">Загрузка...</p>
+        return <Loading/>
+
     }
 
     const {
@@ -25,7 +27,6 @@ export const Profile = ({match}) => {
         following, public_repos, public_gists,
         bio, blog, html_url
     } = user
-    console.log(user)
     return (
         <React.Fragment>
             <Link to={'/'} className="btn btn-primary">На главную</Link>

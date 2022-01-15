@@ -2,19 +2,19 @@ import React, {useContext} from 'react'
 import Search from "../components/Search";
 import Card from "../components/Card";
 import {githubContext} from "../context/github/githubContext";
+import Loading from "../components/Loading";
 
 
 const Home = () => {
 
     const state = useContext(githubContext)
-    // console.log(state)
     return (
         <React.Fragment>
             <Search/>
-
             {
                 state.loading ?
-                    <p className="text-center">Загрузка...</p>
+                    <Loading/>
+
                     :
                     <div className="row">
                         {state.users.map(user =>(
