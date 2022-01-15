@@ -62,7 +62,7 @@ export const GithubState = ({children}) => {
 
     const {users, user, repos, loading} = state
 
-    return (
+    return(
         <githubContext.Provider value={{
             setLoading, clearUser, getUser, getRepos, search,
             users, user, repos, loading
